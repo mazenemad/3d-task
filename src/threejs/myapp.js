@@ -1,10 +1,10 @@
   import { createRoot } from 'react-dom/client'
   import React, { useRef, useState,useMemo } from 'react'
   import { Canvas, useFrame,useLoader } from '@react-three/fiber'
-  import { PresentationControls ,OrbitControls, Loader, PointerLockControls, BBAnchor,Html} from '@react-three/drei'
+  import { PresentationControls ,OrbitControls, Loader, PointerLockControls, BBAnchor,Html, TransformControls} from '@react-three/drei'
   import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
   import * as THREE from 'three'
-
+  import loading from '../loading.gif'
   let global = {}
   let clickableObject = {
     "Moon_0":{vars:{color:'green',name:'Moon',options:['height:1m','width:1m']}},
@@ -18,8 +18,9 @@
     let [display,setDisplay] = useState(false)
     global.setDisplay = setDisplay
     return <div className='loader'
-    style={{display:!display?'block':'none',background:'black',position:'absolute',zIndex:'100',left:0,height:0,width:"100%",height:"100vh"}}>
-        <h1 style={{color:'white',textAlign:'center',marginTop:'20%'}}>loading...</h1>
+    style={{display:!display?'block':'none',background:'#1874D2',position:'absolute',zIndex:'100',left:0,height:0,width:"100%",height:"100vh"}}>
+      <h1 style={{color:'white',textAlign:'center',marginTop:'2'}}>loading...</h1>
+      <img src={loading}></img>
     </div>
   }
   function Scene1() {
